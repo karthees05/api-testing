@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-professional-exam-tutorial-parent</artifactId>
+        <groupId>spring-professional-exam-tutorial-module01</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>module01-question06</artifactId>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>module01-question06-non-web</module>
+        <module>module01-question06-web-servlet2</module>
+        <module>module01-question06-web-servlet3-xml</module>
+        <module>module01-question06-web-servlet3-annotation</module>
+        <module>module01-question06-boot-cli</module>
+        <module>module01-question06-boot-web</module>
+    </modules>
+
+</project>
