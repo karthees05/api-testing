@@ -1,0 +1,16 @@
+#Idea
+.idea/
+/.idea/
+
+
+#NewBeans
+/target/
+*target/
+/classes/
+*/classes/
+*/build/
+
+#STS
+.classpath
+.project
+/.settings/
