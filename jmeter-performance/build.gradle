@@ -1,0 +1,41 @@
+
+apply plugin: 'net.foragerr.jmeter'
+apply plugin: 'java'
+
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+//        mavenLocal()  // local enabled only when compiling jmeter-gradle-plugin to local maven repo
+        maven {
+            url 'https://dl.bintray.com/jmeter-gradle-plugin/jmeter'
+        }
+        dependencies {
+            classpath "net.foragerr.jmeter:jmeter-gradle-plugin:1.1.0-4.0"
+        }
+    }
+}
+
+
+afterEvaluate {
+    def jMeterExt = project.extensions.findByName("jmeter")
+    jMeterExt.metaClass.enableReports = true
+    jMeterExt.metaClass.enableExtendedReports = false
+    jMeterExt.metaClass.reportTitle = null
+    jMeterExt.metaClass.reportPostfix = ""
+}
+jmeter {
+    jmAddProp = file("src/test/jmeter/use.properties")
+}
+
+task perfTest {
+    dependsOn jmClean, jmRun, jmReport
+}
+jmReport.mustRunAfter(jmRun)
+//bootJar.enabled = false
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+
