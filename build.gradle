@@ -20,7 +20,7 @@ buildscript {
 afterEvaluate {
     def jMeterExt = project.extensions.findByName("jmeter")
     jMeterExt.metaClass.enableReports = false
-    jMeterExt.metaClass.enableExtendedReports = false
+    jMeterExt.metaClass.enableExtendedReports = true
     jMeterExt.metaClass.reportTitle = null
     jMeterExt.metaClass.reportPostfix = ""
     jMeterExt.metaClass.reportXslt = "$project.projectDir/jmeter-results-detail-report_21.xsl"
