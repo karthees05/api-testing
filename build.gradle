@@ -2,7 +2,7 @@
 apply plugin: 'net.foragerr.jmeter'
 apply plugin: 'java'
 
-
+defaultTasks'perfTest'
 
 buildscript {
     repositories {
@@ -33,10 +33,6 @@ task perfTest {
     dependsOn jmClean, jmRun, jmReport
 }
 jmReport.mustRunAfter(jmRun)
-//bootJar.enabled = false
-
-
-
 
 group 'org.example'
 version '1.0-SNAPSHOT'
