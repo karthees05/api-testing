@@ -1,0 +1,12 @@
+/gradle-jmeter-performance/build/
+/gradle-jmeter-performance/.idea/
+/gradle-jmeter-performance/.gradle/
+/classes/
+*/build/
+.gradle
+*/out/
+.idea/
+*.iml
+*.ipr
+*.iws
+
