@@ -1,8 +1,7 @@
-
 apply plugin: 'net.foragerr.jmeter'
 apply plugin: 'java'
 
-defaultTasks'perfTest'
+defaultTasks 'perfTest'
 
 buildscript {
     repositories {
@@ -20,19 +19,22 @@ buildscript {
 
 afterEvaluate {
     def jMeterExt = project.extensions.findByName("jmeter")
-    jMeterExt.metaClass.enableReports = true
+    jMeterExt.metaClass.enableReports = false
     jMeterExt.metaClass.enableExtendedReports = false
     jMeterExt.metaClass.reportTitle = null
     jMeterExt.metaClass.reportPostfix = ""
+    jMeterExt.metaClass.reportXslt = "$project.projectDir/jmeter-results-detail-report_21.xsl"
 }
 jmeter {
     jmAddProp = file("src/test/jmeter/use.properties")
+    csvLogFile = false
 }
 
 task perfTest {
     dependsOn jmClean, jmRun, jmReport
 }
 jmReport.mustRunAfter(jmRun)
+
 
 group 'org.example'
 version '1.0-SNAPSHOT'
