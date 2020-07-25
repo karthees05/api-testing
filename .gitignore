@@ -1,0 +1,14 @@
+/build/
+/.idea/
+/.gradle/
+/classes/
+*/build/
+.gradle
+*/out/
+.idea/
+*.iml
+*.ipr
+*.iws
+usage
+target
+
