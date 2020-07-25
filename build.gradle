@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile 'org.springframework.boot:spring-boot-starter-parent:1.5.1.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE'
+
+    compile 'info.cukes:cucumber-spring:1.2.5'
+    compile 'info.cukes:cucumber-junit:1.2.5'
+    compile 'info.cukes:cucumber-java:1.2.5'
+    compile 'com.jayway.jsonpath:json-path:2.2.0'
+
+}
+task cucumber(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'org.junit.runner.JUnitCore'
+    args = ['com.api.automation.runner.RunCuke']
+
+}
