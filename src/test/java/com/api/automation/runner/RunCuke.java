@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "usage:usage/cucumber-usage.json"},
         features = "src/test/resources/features",
         glue = {"com.api.automation.stepdefinitions"},
-        tags = {"@scenario_1, @scenario_2,@scenario_3"})
+        tags = {"@fakeapi_scenario1"})
 /*@CucumberOptions(
         plugin = {"pretty",
                 "html:target/cucumber-html-report"},
