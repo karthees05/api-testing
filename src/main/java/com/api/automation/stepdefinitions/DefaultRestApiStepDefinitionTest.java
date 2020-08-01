@@ -279,7 +279,7 @@ public class DefaultRestApiStepDefinitionTest extends AbstractStepDefinitionCons
      */
     @Then("^response body is typed as array using path (.*) with length (\\d+)$")
     public void bodyPathIsArrayWithLength(String jsonPath, int length) throws IOException {
-        this.checkJsonPathIsArray(jsonPath, length);
+        this.checkJsonPathArraySize(jsonPath, length);
     }
 
     /**

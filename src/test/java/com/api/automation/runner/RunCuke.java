@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-result.xml",
                 "usage:usage/cucumber-usage.json"},
         features = "src/test/resources/features",
-        glue = {"com.api.automation.stepdefinitions"},
-        tags = {"@fakeapi_scenario1"})
+        glue = {"com.api.automation.stepdefinitions"}/*,
+        tags = {"@scenario_3"}*/)
 /*@CucumberOptions(
         plugin = {"pretty",
                 "html:target/cucumber-html-report"},
