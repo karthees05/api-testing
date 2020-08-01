@@ -249,9 +249,9 @@ abstract class AbstractStepDefinitionConsumer {
         Assert.isTrue(!String.valueOf(pathValue).isEmpty());
 
         if (!isNot) {
-            Assert.isTrue(pathValue.equals(jsonValue), "path value and json values are equal");
+            Assert.isTrue(String.valueOf(pathValue).equals(jsonValue), "path value and json values are equal");
         } else {
-            Assert.isTrue(!pathValue.equals(jsonValue));
+            Assert.isTrue(!String.valueOf(pathValue).equals(jsonValue));
         }
     }
 
@@ -266,6 +266,19 @@ abstract class AbstractStepDefinitionConsumer {
         Assert.isTrue(pathValue instanceof Collection);
         if (length != -1) {
             Assert.isTrue(((Collection) pathValue).size() == length);
+        }
+    }
+
+    /**
+     * Test json path is array typed and its size is matching the expected length
+     *
+     * @param jsonPath json path query
+     * @param length   expected length (-1 to not control the size)
+     */
+    void checkJsonPathArraySize(String jsonPath, int length) {
+        Object pathValue = getJsonPath(jsonPath);
+        if (length != -1) {
+            Assert.isTrue(((LinkedHashMap) pathValue).size() == length);
         }
     }
 
