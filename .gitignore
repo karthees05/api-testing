@@ -9,6 +9,7 @@
 *.iml
 *.ipr
 *.iws
+*.jar
 usage
 target
 
