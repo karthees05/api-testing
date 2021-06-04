@@ -1,20 +1,65 @@
 pipeline {
+    environment{
+        stageCompile = ':x:'
+        stageDependencies = ':x:'
+        stageTest = ':x:'
+        stageClient = ':x:'
+        stageArchive = ':x:'
+    }
     agent any
     stages {
-        stage('Build') {
-            steps {
-                clean build
+        stage('Dependencies') {
+            steps{
+                script
+                {
+                    stageDependencies = "Dependencies OK"
+                }
             }
+        }
+        stage('Compile') {
+            steps{
+                script
+                {
+                    stageCompile = "Compile OK"
+                }
+            }
+        }
+        stage('Test') {
+            steps{
+                script
+                {
+                    stageTest = "Test OK"
+                }
+            }
+        }
+        stage('Client') {
+            steps{
+                script
+                {
+                    stageClient = "Client OK"
+                }
+            }
+        }
+        stage('Archive') {
+            steps{
+                script
+                {
+                    stageArchive = "Archive OK"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            slackNotify()
         }
     }
 }
-pipeline {
-    agent any
-    stages {
-        stage('Test') {
-            steps {
-                cucumber
-            }
-        }
-    }
+
+void slackNotify() {
+    echo stageDependencies
+    echo stageCompile
+    echo stageTest
+    echo stageClient
+    echo stageArchive
 }
