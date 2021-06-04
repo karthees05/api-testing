@@ -20,7 +20,7 @@ pipeline {
             steps{
                 script
                 {
-                    gradle clean build
+                    stageCompile = "Compile OK"
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
             steps{
                 script
                 {
-                    gradle cucumber
+                    stageTest = "Test OK"
                 }
             }
         }
